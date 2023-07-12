@@ -12,5 +12,19 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  <!-- <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
+  <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,*,*">
+      <!--  File/Folder choice -->
+
+
+
+      <!--  DateTime setup -->
+
+
+      <!--  Play audio -->
+
+  </Grid>
+
+
+
 </UserControl>
