@@ -14,14 +14,34 @@
 
   <!-- <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
   <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*,*,*">
-      <!--  File/Folder choice -->
 
+      <!--  File/Folder choice -->
+      <StackPanel Orientation="Horizontal" >
+          <Label VerticalAlignment="Center">Path:</Label>
+          <TextBox Width="130"></TextBox>
+          <Button Content="Browse"></Button>
+      </StackPanel>
+
+      <StackPanel Grid.Row="1">
+
+          <Button Content="Scan" Margin="15,10" Command="{Binding ScanFolderCommand}"></Button>
+          <ListBox  Grid.Row="1" 
+                    Margin="15"
+                    BorderBrush="Black"
+                    BorderThickness="2" 
+                    ItemsSource="{Binding ListOfAudioFiles}"
+                    SelectedItem="{Binding SelectedAudioFile}">
+
+          </ListBox>
+      </StackPanel>
 
 
       <!--  DateTime setup -->
 
 
       <!--  Play audio -->
+      <Button Grid.Column="1" Content="Play" 
+              Command="{Binding PlaySelectedAudioFileCommand}"></Button>
 
   </Grid>
 

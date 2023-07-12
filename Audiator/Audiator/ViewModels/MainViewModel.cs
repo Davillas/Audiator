@@ -1,5 +1,6 @@
 ﻿using Audiator.Services.Interfaces;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Audiator.ViewModels;
 
@@ -39,12 +40,56 @@ public partial class MainViewModel : ViewModelBase
 
     #endregion
 
+    #region ListOfAudioFiles : string[] - List of Audio FIles
+
+    [ObservableProperty]
+    /// <summary>List of Audio FIles</summary>
+    private string[] _ListOfAudioFiles;
+
+    #endregion
+
+    #region SelectedAudioFile : string - Selected Audio FIle
+
+    [ObservableProperty]
+    /// <summary>Selected Audio FIle</summary>
+    private string? _SelectedAudioFile;
+
+    #endregion
 
     #endregion
 
     #region Commands
 
-    
+    #region RelayCommand ScanFolderCommand - Scan Folder Command
+
+    /// <summary>Scan Folder Command</summary>
+    [RelayCommand(CanExecute = nameof(CanScanFolder))]
+    private void ScanFolder()
+    {
+        ListOfAudioFiles = fileExplorer.GetAudioFiles(@"C:\Users\David\Downloads");
+    }
+
+    /// <summary>Scan Folder Command</summary>
+    private bool CanScanFolder() => true;
+
+    #endregion
+
+    #region RelayCommand PlaySelectedAudioFileCommand - Play selected audio
+
+    /// <summary>Play selected audio</summary>
+    [RelayCommand(CanExecute = nameof(CanPlaySelectedAudioFile))]
+    private void PlaySelectedAudioFile()
+    {
+        audioPlayer.Play(SelectedAudioFile);
+    }
+
+    /// <summary>Play selected audio</summary>
+    private bool CanPlaySelectedAudioFile() => true;
+
+    #endregion
+
+
+
 
     #endregion
 

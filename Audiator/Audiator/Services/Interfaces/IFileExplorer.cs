@@ -2,5 +2,5 @@
 
 public interface IFileExplorer
 {
-    string[] GetAudioFiles();
+    string[] GetAudioFiles(string audioFolderPath);
 }
